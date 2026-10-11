@@ -15,7 +15,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tbl_oren_compra")
+@Table(name = "tbl_orden_compra")
 @Getter
 @Setter
 public class OrdenCompraTF {
@@ -42,8 +42,11 @@ public class OrdenCompraTF {
 	private String estado;
 	
 	public String getEstadoDescripcion() {
-		return estado.equals("p") ? "Pendiente" :
-	           estado.equals("C") ? "Completado" : "Anulado";
+		return estado == null ? "Sin estado" :
+	           estado.equals("P") ? "Pendiente" :
+	           estado.equals("C") ? "Completado" :
+	           estado.equals("A") ? "Anulado" :
+	           "Estado desconocido";
 	}
 
 }

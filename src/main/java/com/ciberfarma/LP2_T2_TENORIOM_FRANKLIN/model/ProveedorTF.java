@@ -1,6 +1,7 @@
 package com.ciberfarma.LP2_T2_TENORIOM_FRANKLIN.model;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,7 +36,7 @@ public class ProveedorTF {
 	private String razonSocial;
 	
 	@Column(name = "fecha_registro")
-	private LocalDate fechaRegistro;
+	private LocalDateTime fechaRegistro;
 	
 	@Column(name="direccion")
 	private String direccion;
@@ -46,6 +47,11 @@ public class ProveedorTF {
 	@ManyToOne
 	@JoinColumn(name="id_rubro")
 	private RubroTF rubro;
+	
+	public String getDescripcion() {
+		return ruc + " " + razonSocial;
+		
+	}
 	
 
 }
